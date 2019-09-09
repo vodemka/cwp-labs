@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Task 02-04</title>
+</head>
+
+<body>
+    <h3 id="FIO">FIO: </h3>
+    <script>
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "/api/name");
+        xhr.responseType = 'json';
+        xhr.send();
+
+        xhr.onload = function () {
+            if (xhr.status != 200) {
+                alert("Error");
+            } else {
+                let responseObj = xhr.response;
+                FIO.innerHTML += responseObj.firstname + " " + responseObj.lastname + " " + responseObj.patronymic;
+            }
+        }
+    </script>
+</body>
+
+</html>
