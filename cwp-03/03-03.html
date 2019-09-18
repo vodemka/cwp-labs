@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Task 03-03</title>
+</head>
+
+<body>
+    <div id="result"></div>
+    <script>
+        result.innerHTML = "";
+        let n = 0;
+        const d = Date.now();
+        const full = Date.now();
+        for (var k = 0; k < 21; k++) {
+            fetch('http://localhost:5001/fact?k=' + k, {
+                method: "GET", mode: "no-cors",
+                headers: { "Content-Type": "application/json", "Accept": "application/json" }
+            })
+                .then(resp => { return resp.json(); })
+                .then((data) => {
+                    result.innerHTML += (n++) + ".Result: " + (Date.now() - d) + "-" + data.k + "/" + data.fact + "</br>";
+                    if (n==21) { result.innerHTML += "<hr/>" + (Date.now() - full) + " - full request time</br>"; }
+                });
+        }
+    </script>
+</body>
+
+</html>
