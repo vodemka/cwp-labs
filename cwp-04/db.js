@@ -11,12 +11,13 @@ var db_data = [
 
 class DB {
     constructor() {
-        this.get = () => { return db_data; };
-        this.post = (r) => { db_data.push(r); };
-        this.delete = (id) => {
+
+        this.get = async () => { return await db_data; };
+        this.post = async (r) => { await db_data.push(r); };
+        this.delete = async (id) => {
             try {
                 let res = db_data.find(obj => { return obj.id === id; });
-                if (res != "undefined") {
+                if (res != undefined) {
                     for (var i = db_data.length - 1; i >= 0; --i) {
                         if (db_data[i].id == res.id) {
                             db_data.splice(i, 1);
@@ -24,19 +25,19 @@ class DB {
                         }
                     }
                     ;
-                    return res;
+                    return await res;
                 }
             }
             catch (err) {
-                return "Not found";
+                return await "Not found";
             }
         };
-        this.put = (r) => {
+        this.put = async (r) => {
             try {
                 let res = db_data.find(obj => {
                     return obj.id === parseInt(r.id);
                 });
-                if (res != "undefined") {
+                if (res != undefined) {
                     for (var i = db_data.length - 1; i >= 0; --i) {
                         if (db_data[i].id == res.id) {
                             db_data[i].name = r.name;
@@ -44,11 +45,11 @@ class DB {
                         }
                     }
                     ;
-                    return res;
+                    return await res;
                 }
             }
             catch (err) {
-                return "Not found";
+                return await "Not found";
             }
         };
     }

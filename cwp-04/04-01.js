@@ -5,35 +5,34 @@ var data = require("./db");
 
 var db = new data.DB();
 
-db.on("GET", (req, res) => {
+db.on("GET", async (req, res) => {
     console.log("DB.GET");
-    res.end(JSON.stringify(db.get()));
-
+    await res.end(JSON.stringify(await db.get()));
 });
 
-db.on("POST", (req, res) => {
+db.on("POST", async (req, res) => {
     console.log("DB.POST");
-    req.on("data", data => {
+    req.on("data", async data => {
         let r = JSON.parse(data);
-        db.post(r);
-        res.end(JSON.stringify(r));
+        await db.post(r);
+        await res.end(JSON.stringify(await r));
     })
 });
 
-db.on("PUT", (req, res) => {
+db.on("PUT", async (req, res) => {
     console.log("DB.PUT");
-    req.on("data", data => {
+    req.on("data", async data => {
         let r = JSON.parse(data);
-        db.put(r);
-        res.end(JSON.stringify(r));
+        await db.put(r);
+        await res.end(JSON.stringify(r));
     })
 });
 
-db.on("DELETE", (req, res) => {
+db.on("DELETE", async (req, res) => {
     console.log("DB.DELETE");
     var url = new URL("http://localhost:5000" + req.url);
     var id = parseInt(url.searchParams.get("id"));
-    res.end(JSON.stringify(db.delete(id)));
+    await res.end(JSON.stringify(db.delete(id)));
 });
 
 http.createServer(function (request, response) {
