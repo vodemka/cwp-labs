@@ -1,9 +1,9 @@
 const http = require("http");
 const url = require("url");
 const fs = require("fs");
-var data = require("./db");
+let data = require("./db");
 
-var db = new data.DB();
+let db = new data.DB();
 
 db.on("GET", async (req, res) => {
     console.log("DB.GET");
@@ -30,9 +30,9 @@ db.on("PUT", async (req, res) => {
 
 db.on("DELETE", async (req, res) => {
     console.log("DB.DELETE");
-    var url = new URL("http://localhost:5000" + req.url);
-    var id = parseInt(url.searchParams.get("id"));
-    await res.end(JSON.stringify(db.delete(id)));
+    let url = new URL("http://localhost:5000" + req.url);
+    let id = parseInt(url.searchParams.get("id"));
+    await res.end(JSON.stringify(await db.delete(id)));
 });
 
 http.createServer(function (request, response) {

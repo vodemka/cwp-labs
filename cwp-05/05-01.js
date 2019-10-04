@@ -33,7 +33,7 @@ db.on("DELETE", async (req, res) => {
     console.log("DB.DELETE");
     let url = new URL("http://localhost:5000" + req.url);
     let id = parseInt(url.searchParams.get("id"));
-    await res.end(JSON.stringify(db.delete(id)));
+    await res.end(JSON.stringify(await db.delete(id)));
 });
 
 db.on("COMMIT", async () => db.commit())
