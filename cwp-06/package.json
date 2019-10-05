@@ -1,0 +1,15 @@
+{
+  "name": "m0603x",
+  "version": "1.0.0",
+  "description": "Laboratory work 06 by vodemka",
+  "main": "06-02.js",
+  "dependencies": {
+    "sendmail": "^1.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dokurno Vadim",
+  "license": "ISC"
+}

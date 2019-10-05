@@ -1,0 +1,3 @@
+npm view sendmail
+npm install sendmail
+npm install m0603x -g
