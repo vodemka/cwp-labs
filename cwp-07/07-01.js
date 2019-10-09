@@ -1,11 +1,3 @@
-// // let s = http.createServer(function (request, response) {
-// //     if (url.parse(request.url).pathname === "/") {
-// //         let html = fs.readFileSync("./index.html");
-// //         response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-// //         response.end(html);
-// //     }
-// // }
-// // ).listen(5000);
 const http = require("http");
 const url = require("url");
 const fs = require("fs");

@@ -28,13 +28,13 @@
         <div class="container">
             <div class="row">
                 <h2 id="result">Test js </h2>
-                <script>result.innerHTML += sum(1,1)</script>
+                <script>result.innerHTML += sum(1, 1)</script>
             </div>
         </div>
         <hr />
         <div class="container">
             <div class="row">
-                <image src="file.png" style="widows: 100px; height: 200px;"/>
+                <image src="file.png" style="widows: 100px; height: 200px;" />
             </div>
         </div>
         <hr />
@@ -62,9 +62,9 @@
         <div class="container">
             <div class="row">
                 <textarea id="xmlBlock" style="width:500px; height:130px;">XML: </textarea>
-                    <script>
-                        let respo2 = fetch("/file.xml")
-                            .then((resp) => resp.text()
+                <script>
+                    let respo2 = fetch("/file.xml")
+                        .then((resp) => resp.text()
                             .then(data => {
                                 console.log(data);
                                 xmlBlock.innerHTML += "\n" + data;
@@ -72,7 +72,7 @@
                             .catch(function (error) {
                                 console.log('error: ' + error.message);
                             }))
-                    </script>
+                </script>
             </div>
         </div>
         <hr />
