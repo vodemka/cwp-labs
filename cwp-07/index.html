@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Index page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="file.css">
+    <script src="file.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Laboratory 07</h1>
+        <div class="container">
+            <div class="row">
+                <a href="file.docx">.docx file</a>
+            </div>
+        </div>
+        <hr />
+        <div class="container">
+            <div class="row">
+                <h3>Test css</h3>
+            </div>
+        </div>
+        <hr />
+        <div class="container">
+            <div class="row">
+                <h2 id="result">Test js </h2>
+                <script>result.innerHTML += sum(1,1)</script>
+            </div>
+        </div>
+        <hr />
+        <div class="container">
+            <div class="row">
+                <image src="file.png" style="widows: 100px; height: 200px;"/>
+            </div>
+        </div>
+        <hr />
+        <div class="container">
+            <div class="row">
+                <video src="file.mp4" style="widows: 100px; height: 200px;" controls></video>
+            </div>
+        </div>
+        <hr />
+        <div class="container">
+            <div class="row">
+                <textarea id="jsonBlock" style="width:500px; height:130px;">JSON: </textarea>
+                <script>
+                    let respo = fetch("/file.json")
+                        .then((resp) => resp.json().then((data) => {
+                            jsonBlock.innerHTML += "\n" + JSON.stringify(data);
+                        }))
+                        .catch(function (error) {
+                            console.log('error: ' + error.message);
+                        })
+                </script>
+            </div>
+        </div>
+        <hr />
+        <div class="container">
+            <div class="row">
+                <textarea id="xmlBlock" style="width:500px; height:130px;">XML: </textarea>
+                    <script>
+                        let respo2 = fetch("/file.xml")
+                            .then((resp) => resp.text()
+                            .then(data => {
+                                console.log(data);
+                                xmlBlock.innerHTML += "\n" + data;
+                            })
+                            .catch(function (error) {
+                                console.log('error: ' + error.message);
+                            }))
+                    </script>
+            </div>
+        </div>
+        <hr />
+    </div>
+</body>
+
+</html>
