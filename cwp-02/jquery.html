@@ -16,7 +16,7 @@
                     success: function (data, status, xhr) {
                         $("#FIO").append(data.firstname + ' ' + data.lastname + ' ' + data.patronymic);
                     },
-                    error: function (jqXhr, textStatus, errorMessage) { // error callback 
+                    error: function (jqXhr, textStatus, errorMessage) {
                         $("#FIO").append('Error: ' + errorMessage);
                     }
                 });
