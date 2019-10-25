@@ -1,0 +1,15 @@
+{
+  "name": "cwp-10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "10-01.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vadim Dokurno",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ws": "^7.2.0"
+  }
+}
